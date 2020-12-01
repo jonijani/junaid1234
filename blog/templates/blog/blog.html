@@ -1,0 +1,23 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+
+
+hello Bloggggggggg
+<br>
+
+<h2>Joni has written {{ hello.count }} blogs{{ blog.count|pluralize }} </h2>
+
+{% for zakariya in hello %}
+<a href="{% url 'blog:detail' zakariya.id %}"><h1>{{zakariya.title}}"</h1></a>
+<p>{{zakariya.date|date:"D d M Y"}}</p>
+<p>{{zakariya.description|striptags|truncatechars:100 }}</p>
+
+{% if zakariya.url %}
+<a href="{{zakariya.url}}">Read more</a>
+{% endif %}
+
+
+{% endfor %}
+
+{% endblock %}
